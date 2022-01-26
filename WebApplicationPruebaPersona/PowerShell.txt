@@ -1,0 +1,12 @@
+Invoke-Rest Method(uri=https://localhost:7248/swagger/index.html)
+
+$response = Invoke-RestMethod 'https://localhost:7248/swagger/index.html/api/PersonaController/1
+
+$persona ={
+	id=1
+	nombre="Sergio"
+	edad=3
+}
+$json = $persona | ConvertTo-Json
+$response = Invoke-RestMethod 'https://localhost:7248/swagger/index.html/api/PersonaController' -Method Post -Body $json -ContentType 'application/json'
+
